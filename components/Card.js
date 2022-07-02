@@ -1,10 +1,11 @@
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useCountdown } from "../hooks/useCountdown";
 
 const DateTimeDisplay = ({ value, type, isDanger }) => {
   return (
     <div className={isDanger ? "countdown danger" : "countdown"}>
-      <p>{value}</p>
+      <p className="time">{value}</p>
       <span>{type}</span>
     </div>
   );
@@ -61,8 +62,6 @@ function Card({ targetDate }) {
             equal to {pool.bettingPrice}
           </p>
           <hr />
-          <p>Pool Status: {pool.status}</p>
-          <hr />
           <p>Pool closes in: </p>
           {days + hours + minutes + seconds <= 0 ? (
             <ExpiredNotice />
@@ -96,15 +95,19 @@ function Card({ targetDate }) {
               </option>
             </select>
           </p>
-          <hr />
-          <p>Pool Duration: {pool.poolDuration}</p>
         </div>
       </div>
 
       <div className="card-cta">
-        <button className="btn btn--bull">Bull</button>
+        <button className="btn btn--bull">
+          <Image src="/bull.png" width={40} height={40} />
+          Bull
+        </button>
 
-        <button className="btn btn--bear">Bear</button>
+        <button className="btn btn--bear">
+          <Image src="/bear.png" width={40} height={40} />
+          Bear
+        </button>
       </div>
     </div>
   );

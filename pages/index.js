@@ -63,11 +63,12 @@ export default function Home() {
 
   useEffect(() => {
     getTicketPrice();
-    console.log(localStorage.getItem("walletAddress"));
-    const address = Web3.utils.toChecksumAddress(
-      localStorage.getItem("walletAddress")
-    );
-    setWalletAddress(address);
+    if (localStorage.getItem("walletAddress")) {
+      const address = Web3.utils.toChecksumAddress(
+        localStorage.getItem("walletAddress")
+      );
+      setWalletAddress(address);
+    }
   }, []);
 
   return (

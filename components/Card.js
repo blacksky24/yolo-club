@@ -34,7 +34,13 @@ const ShowCounter = ({ days, hours, minutes, seconds }) => {
   );
 };
 
-function Card({ targetDate }) {
+function Card({
+  targetDate,
+  buyBullTicket,
+  buyBearTicket,
+  ticketPrice,
+  setNoOfTicket,
+}) {
   const [pool, setPool] = useState({
     id: 1,
     name: "ETH Pool",
@@ -75,12 +81,15 @@ function Card({ targetDate }) {
           )}
           <hr />
           <p>
-            Ticke Price: <b>{pool.ticketPrice} ETH</b>
+            Ticke Price: <b>{ticketPrice} wei</b>
           </p>
           <hr />
           <p>
             Number of tickets -
-            <select className="select">
+            <select
+              className="select"
+              onChange={(e) => setNoOfTicket(e.target.value)}
+            >
               <option className="option" value={1}>
                 1
               </option>
@@ -99,12 +108,12 @@ function Card({ targetDate }) {
       </div>
 
       <div className="card-cta">
-        <button className="btn btn--bull">
+        <button className="btn btn--bull" onClick={buyBullTicket}>
           <Image src="/bull.png" width={40} height={40} />
           Bull
         </button>
 
-        <button className="btn btn--bear">
+        <button className="btn btn--bear" onClick={buyBearTicket}>
           <Image src="/bear.png" width={40} height={40} />
           Bear
         </button>

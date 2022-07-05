@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Nav() {
   const [walletAddress, setWalletAddress] = useState();
@@ -16,6 +16,7 @@ function Nav() {
 
       if (accounts.length) {
         setWalletAddress(accounts[0]);
+        localStorage.setItem("walletAddress", accounts[0]);
       }
     } catch (error) {
       console.error(error);
@@ -37,17 +38,25 @@ function Nav() {
     }
   };
 
+  useEffect(() => {
+    const address = localStorage.getItem("walletAddress");
+    address && setWalletAddress(address);
+  }, []);
+
   return (
     <div className="nav">
       <div className="nav-logo">LOGO</div>
 
       <div className="nav-logo">
-        <img width={150} src="/logo.png" alt="bull-bear"/>
+        <img width={150} src="/logo.png" alt="bull-bear" />
       </div>
 
       <div className="nav-links">
         {walletAddress ? (
-          <button className="btn">{`${walletAddress.slice(0, 6)}....${walletAddress.slice(-5)}`}</button>
+          <button className="btn">{`${walletAddress.slice(
+            0,
+            6
+          )}....${walletAddress.slice(-5)}`}</button>
         ) : (
           <button className="btn" onClick={connectMeta}>
             Connect wallet

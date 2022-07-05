@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400;500;600;700;800&display=swap");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -76,6 +80,13 @@ a {
   justify-content: center;
 }
 
+.btn--light{
+  background-color: #2eb086;
+  color: #000;
+  margin: 5px;
+  width: 100%;
+}
+
 .select,
 .option {
   padding: 8px;
@@ -124,12 +135,17 @@ a {
 
 /* card */
 .card {
-  width: 100%;
+  width: fit-content;
   padding: 25px;
   background-color: rgba(0, 0, 0, 0.8);
-  margin: 10px;
   border-radius: 10px;
   border: 2px solid #000;
+}
+
+.card h3{
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-img {
@@ -159,4 +175,14 @@ a {
   font-weight: bolder;
   margin: 0;
   text-align: center;
+}
+
+
+/* input */
+.inp{
+  font-size: 20px;
+  padding: 10px;
+  color: #000;
+  border-radius: 8px;
+  margin: 5px;
 }

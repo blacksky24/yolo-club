@@ -55,11 +55,11 @@ function Card({
   const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
   return (
-    <div className="card">
+    <div className="card button-bg">
       <div className="card-header">
         <img
           className="card-img"
-          src="https://c.tenor.com/7VzBpq5zYR8AAAAd/eth.gif"
+          src="/eth.webp"
           alt="eth"
         />
         <div className="card-details">
@@ -108,12 +108,12 @@ function Card({
       </div>
 
       <div className="card-cta">
-        <button className="btn btn--bull" onClick={buyBullTicket}>
+        <button className="game-button green w-full" onClick={buyBullTicket}>
           <Image src="/bull.png" width={40} height={40} />
           Bull
         </button>
 
-        <button className="btn btn--bear" onClick={buyBearTicket}>
+        <button className="game-button red w-full" onClick={buyBearTicket}>
           <Image src="/bear.png" width={40} height={40} />
           Bear
         </button>

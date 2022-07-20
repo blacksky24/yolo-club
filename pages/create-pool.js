@@ -34,13 +34,11 @@ function CreatePool() {
           </select>
           <select className="inp">
             <option>Crypto</option>
-            <option>NFTs</option>
           </select>{" "}
           will be
           <select className="inp">
-            <option>Greater than</option>
-            <option>Equal to</option>
-            <option>Less then</option>
+            <option> {"> or ="} </option>
+            <option> {"<"} </option>
           </select>
           <input className="inp" type={"number"} placeholder="amount" />
           <select className="inp">
@@ -69,6 +67,17 @@ function CreatePool() {
             />
 
             <button className="game-button red">Closing time</button>
+          </div>
+
+          <div className="flex items-center button-bg rounded-lg mx-5">
+            <input type={"number"} placeholder="ticket price" className="inp" />
+            <select className="inp">
+              <option>USDT</option>
+              <option>USD</option>
+              <option>USDC</option>
+            </select>
+
+            <button className="game-button orange">Ticket Price</button>
           </div>
         </div>
 

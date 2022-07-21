@@ -9,6 +9,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "JetBrains Mono", monospace;
+  background-color: black;
 }
 
 a {
@@ -46,7 +47,7 @@ a {
   width: 100%;
   height: 100vh;
   background: no-repeat;
-  background-image: url("/yolo1.webp");
+  background-image: url("https://www.analyticsinsight.net/wp-content/uploads/2022/03/Despite-the-Ongoing-Fall-this-is-the-Best-Time-to-Buy-Ethereum.jpg");
   background-size: cover;
 }
 
@@ -209,4 +210,24 @@ a {
 .inp option{
   background-color: #000;
   color: #fff;
+}
+
+.cont{
+  min-height: 95vh;
+  position: relative;
+  top: 0;
+  font-size: 20px;
+  line-height: 1.5em;
+  letter-spacing: 0.1em;
+  border: none;
+  margin: 15px 15px 30px;
+ background-color: #54D440;
+  border-bottom: 3px solid rgba(#54D440, 0.5);
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 8px 15px 10px;
+  box-shadow: 0 6px 0 #50bd40, 0 8px 1px 1px rgba(0, 0, 0, 0.3),
+    0 10px 0 5px #349625, 0 12px 0 5px #1f7512, 0 15px 0 5px #1f7a12,
+    0 15px 1px 6px rgba(0, 0, 0, 0.3);
+
 }

@@ -55,13 +55,11 @@ function Card({
   const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
   return (
-    <div className="card button-bg">
+    <div className="card box">
       <div className="card-header">
-        <img
-          className="card-img"
-          src="/eth.webp"
-          alt="eth"
-        />
+        <div className="card-img flex items-center">
+          <img src="/eth.png" alt="eth" />
+        </div>
         <div className="card-details">
           <p>
             On 22 July, 12:00:00 PM GMT, price of ETH will be Greater than or
@@ -104,19 +102,22 @@ function Card({
               </option>
             </select>
           </p>
+
+          <div className="card-cta">
+            <button
+              className="game-button green w-full"
+              onClick={buyBullTicket}
+            >
+              <Image src="/bull.png" width={40} height={40} />
+              Bull
+            </button>
+
+            <button className="game-button red w-full" onClick={buyBearTicket}>
+              <Image src="/bear.png" width={40} height={40} />
+              Bear
+            </button>
+          </div>
         </div>
-      </div>
-
-      <div className="card-cta">
-        <button className="game-button green w-full" onClick={buyBullTicket}>
-          <Image src="/bull.png" width={40} height={40} />
-          Bull
-        </button>
-
-        <button className="game-button red w-full" onClick={buyBearTicket}>
-          <Image src="/bear.png" width={40} height={40} />
-          Bear
-        </button>
       </div>
     </div>
   );

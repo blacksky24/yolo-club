@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Web3 from "web3";
+import Nav from "../components/Nav";
 import { CONTRACT_ABI, CONTRACT_ADDRESS } from "../constants";
 
 function Admin() {
@@ -298,29 +299,18 @@ function Admin() {
     getResultPrice();
     getPoolWinner();
     getOwner();
+
+    console.log(getContract());
   }, []);
 
   return (
     <div>
       <div className="cont">
-        <div className="bg"></div>
 
-        <div className="card-container">
-          <h1>Contract Intractions</h1>
-          {walletAddress ? (
-            <button className="btn">{`${walletAddress.slice(
-              0,
-              6
-            )}....${walletAddress.slice(-5)}`}</button>
-          ) : (
-            <button className="btn" onClick={connectMeta}>
-              Connect wallet
-            </button>
-          )}
-        </div>
+        <Nav title="Pool Intraction"/>
 
-        <div className="flex items-center justify-center p-5">
-          <div className="card">
+        <div className="flex items-center justify-center p-5 ">
+          <div className="box card">
             <h3>
               Ticket Price: <b>{ticketPrice} Ξ</b>
             </h3>

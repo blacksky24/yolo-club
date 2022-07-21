@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Nav() {
+function Nav(props) {
   const [walletAddress, setWalletAddress] = useState();
 
   let metamask = typeof window !== "undefined" && window.ethereum;
@@ -44,21 +44,21 @@ function Nav() {
   }, []);
 
   return (
-    <div className="nav">
-      <div className="nav-logo">LOGO</div>
-
+    <div className="nav box">
       <div className="nav-logo">
         <img width={150} src="/logo.png" alt="bull-bear" />
       </div>
 
+      <h2 className="nav-logo text-2xl font-bold text_shadows">{props?.title}</h2>
+
       <div className="nav-links">
         {walletAddress ? (
-          <button className="btn">{`${walletAddress.slice(
+          <button className="game-button orange">{`${walletAddress.slice(
             0,
             6
           )}....${walletAddress.slice(-5)}`}</button>
         ) : (
-          <button className="btn" onClick={connectMeta}>
+          <button className="game-button" onClick={connectMeta}>
             Connect wallet
           </button>
         )}

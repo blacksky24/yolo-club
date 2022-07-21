@@ -27,6 +27,10 @@
   box-shadow: 0 6px 0 #266b91, 0 8px 1px 1px rgba(0, 0, 0, 0.3),
     0 10px 0 5px #12517d, 0 12px 0 5px #1a6b9a, 0 15px 0 5px #0c405e,
     0 15px 1px 6px rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .game-button:hover {
   top: 2px;
@@ -122,29 +126,85 @@
 }
 
 
-.button-bg{
-    position: relative;
-    top: 0;
-    text-decoration: none !important;
-    outline: none !important;
-    font-size: 20px;
-    line-height: 1.5em;
-    letter-spacing: 0.1em;
-    text-shadow: 2px 2px 1px #0066a2, -2px 2px 1px #0066a2, 2px -2px 1px #0066a2,
-      -2px -2px 1px #0066a2, 0px 2px 1px #0066a2, 0px -2px 1px #0066a2,
-      0px 4px 1px #004a87, 2px 4px 1px #004a87, -2px 4px 1px #004a87;
-    border: none;
-    margin: 15px 15px 30px;
-    background: repeating-linear-gradient(
-      45deg,
-      #3ebbf7,
-      #3ebbf7 5px,
-      #45b1f4 5px,
-      #45b1f4 10px
-    );
-    border-bottom: 3px solid rgba(16, 91, 146, 0.5);
-    border-top: 3px solid rgba(255, 255, 255, 0.3);
-    color: #fff !important;
-    border-radius: 8px;
-    padding: 8px 15px 10px;
+.box{
+  position: relative;
+  top: 0;
+  font-size: 20px;
+  line-height: 1.5em;
+  letter-spacing: 0.1em;
+  /* text-shadow: 2px 2px 1px #0066a2, -2px 2px 1px #0066a2, 2px -2px 1px #0066a2,
+    -2px -2px 1px #0066a2, 0px 2px 1px #0066a2, 0px -2px 1px #0066a2,
+    0px 4px 1px #004a87, 2px 4px 1px #004a87, -2px 4px 1px #004a87; */
+  border: none;
+  margin: 15px 15px 30px;
+background-color: #409ae4;
+  border-bottom: 3px solid rgba(16, 91, 146, 0.5);
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+  color: #fff !important;
+  border-radius: 8px;
+  padding: 8px 15px 10px;
+  box-shadow: 0 6px 0 #266b91, 0 8px 1px 1px rgba(0, 0, 0, 0.3),
+    0 10px 0 5px #12517d, 0 12px 0 5px #1a6b9a, 0 15px 0 5px #0c405e,
+    0 15px 1px 6px rgba(0, 0, 0, 0.3);
+
+}
+
+.text_shadows {
+  text-shadow: 3px 3px 0 green, 6px 6px 0 green
+    9px 9px red, 12px 12px 0 blue;
+    font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  margin: 0;
+  /* //color: transparent;
+  //background-color: white;
+  //background-clip: text; */
+  animation: shadows 1.2s ease-in infinite;
+  letter-spacing: 0.4rem;
+}
+
+@keyframes shadows {
+  0% {
+    text-shadow: none;
+  }
+  10% {
+    text-shadow: 3px 3px 0 blue;
+  }
+  20% {
+    text-shadow: 3px 3px 0 red,
+      6px 6px 0 green;
+  }
+  30% {
+    text-shadow: 3px 3px 0 red,
+      6px 6px 0 green, 9px 9px blue;
+  }
+  40% {
+    text-shadow: 3px 3px 0 red,
+      6px 6px 0 green, 9px 9px blue,
+      12px 12px 0 var(--color-quinary);
+  }
+  50% {
+    text-shadow: 3px 3px 0 red,
+      6px 6px 0 green, 9px 9px blue,
+      12px 12px 0 var(--color-quinary);
+  }
+  60% {
+    text-shadow: 3px 3px 0 red,
+      6px 6px 0 green, 9px 9px blue,
+      12px 12px 0 var(--color-quinary);
+  }
+  70% {
+    text-shadow: 3px 3px 0 red,
+      6px 6px 0 green, 9px 9px blue;
+  }
+  80% {
+    text-shadow: 3px 3px 0 red,
+      6px 6px 0 green;
+  }
+  90% {
+    text-shadow: 3px 3px 0 red;
+  }
+  100% {
+    text-shadow: none;
+  }
 }

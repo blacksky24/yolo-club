@@ -80,8 +80,8 @@ export default function Home() {
       </Head>
 
       <div className="cont">
-        <div className="bg"></div>
-        <Nav />
+        {/* <div className="bg"></div> */}
+        <Nav title="Bulls Vs Bear" />
 
         <div className="card-container">
           <div className="p-2">
@@ -102,15 +102,7 @@ export default function Home() {
               ticketPrice={ticketPrice}
             />
           </div>
-          <div className="p-2">
-            <Card
-              targetDate={dateTimeAfterThreeDays}
-              buyBullTicket={buyBullTicket}
-              buyBearTicket={buyBearTicket}
-              setNoOfTicket={setNoOfTicket}
-              ticketPrice={ticketPrice}
-            />
-          </div>
+         
         </div>
       </div>
     </div>

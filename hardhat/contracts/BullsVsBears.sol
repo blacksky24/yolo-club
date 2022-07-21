@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
-contract BullBear is Ownable {
+contract BullsVsBears is Ownable {
 
     // State Varibales
     uint256 public bettingPrice;
@@ -39,6 +39,8 @@ contract BullBear is Ownable {
         commissionPercent = _commissionPercent;
         bettingPoolStatus = PoolStatus.INACTIVE;
         poolWinner = Winner.TBD;
+
+        transferOwnership(address(0x994Bfa3AB280CCAfC5E9dCc116bfD49121Bc3BFe));
     }
 
     function updatePoolActive() public onlyOwner {

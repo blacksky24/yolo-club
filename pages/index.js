@@ -1,3 +1,5 @@
+import Airtable from "airtable";
+import axios from "axios";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import Web3 from "web3";
@@ -14,6 +16,7 @@ export default function Home() {
   const [noOfTicket, setNoOfTicket] = useState(1);
   const [walletAddress, setWalletAddress] = useState("");
   const [ticketPrice, setTicketPrice] = useState(0);
+  const [poolData, setPoolData] = useState([]);
 
   // contract intraction
   let provider = typeof window !== "undefined" && window.ethereum;
@@ -61,6 +64,31 @@ export default function Home() {
       .catch((err) => console.log(err));
   };
 
+  const getPoolData = () => {
+    const base = new Airtable({ apiKey: "keyVYimKxVOx4feiz" }).base(
+      "apprIQfulYNRE7hUL"
+    );
+
+    base("BettingPoolDB")
+      .select({
+        view: "Grid view",
+      })
+      .firstPage(function (err, records) {
+        if (err) {
+          console.error(err);
+          return err;
+        }
+        let cidArr = [];
+        console.log(records);
+        records.map((record) => {
+          console.log(record.fields.ipfsCID);
+          cidArr.push(record.fields.ipfsCID);
+        });
+
+        setPoolData(cidArr);
+      });
+  };
+
   useEffect(() => {
     getTicketPrice();
     if (localStorage.getItem("walletAddress")) {
@@ -69,6 +97,10 @@ export default function Home() {
       );
       setWalletAddress(address);
     }
+
+    getPoolData();
+
+    console.log(poolData);
   }, []);
 
   return (
@@ -84,25 +116,13 @@ export default function Home() {
         <Nav title="Bulls Vs Bear" />
 
         <div className="card-container">
-          <div className="p-2">
-            <Card
-              targetDate={dateTimeAfterThreeDays}
-              buyBullTicket={buyBullTicket}
-              buyBearTicket={buyBearTicket}
-              setNoOfTicket={setNoOfTicket}
-              ticketPrice={ticketPrice}
-            />
-          </div>
-          <div className="p-2">
-            <Card
-              targetDate={dateTimeAfterThreeDays}
-              buyBullTicket={buyBullTicket}
-              buyBearTicket={buyBearTicket}
-              setNoOfTicket={setNoOfTicket}
-              ticketPrice={ticketPrice}
-            />
-          </div>
-         
+          {poolData?.map((cid) => {
+            return (
+              <div className="p-2">
+                <Card cid={cid} walletAddress={walletAddress} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

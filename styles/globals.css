@@ -1,9 +1,23 @@
+<<<<<<< HEAD
+=======
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+>>>>>>> alpha
 html,
 body {
   padding: 0;
   margin: 0;
+<<<<<<< HEAD
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+=======
+  font-family: "JetBrains Mono", monospace;
+  background-color: black;
+>>>>>>> alpha
 }
 
 a {
@@ -13,4 +27,219 @@ a {
 
 * {
   box-sizing: border-box;
+<<<<<<< HEAD
 }
+=======
+  color: #fff;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  /* background-color: black; */
+  /* background-image: url("/yolo1.webp"); */
+  background-position: center;
+  background-size: cover;
+}
+
+.bg::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px); /* apply the blur */
+  pointer-events: none; /* make the overlay click-through */
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  background: no-repeat;
+  background-image: url("https://www.analyticsinsight.net/wp-content/uploads/2022/03/Despite-the-Ongoing-Fall-this-is-the-Best-Time-to-Buy-Ethereum.jpg");
+  background-size: cover;
+}
+
+.card-container {
+  width: 100%;
+  height: auto;
+  padding: 50px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn {
+  width: auto;
+  padding: 10px 30px;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+
+  background: black;
+  font-family: inherit;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn--light{
+  background-color: #2eb086;
+  color: #000;
+  margin: 5px;
+  width: 100%;
+}
+
+.select,
+.option {
+  padding: 8px;
+  background-color: #fff;
+  color: black;
+}
+
+.option {
+}
+
+.btn--bull {
+  background-color: #2eb086;
+  width: 100%;
+
+  text-shadow: -1px -1px #2eb086, 1px 1px #2eb086;
+  border-radius: 7px;
+  box-shadow: 0 0.2em #74ccb0;
+  cursor: pointer;
+}
+
+.btn--bull:active, .btn--bear:active {
+  box-shadow: none;
+  position: relative;
+  top: 0.2em;
+}
+
+.btn--bear {
+  background-color: #e83a14;
+  width: 100%;
+
+  text-shadow: -1px -1px #e83a14, 1px 1px #e83a14;
+  border-radius: 7px;
+  box-shadow: 0 0.2em #e06246;
+  cursor: pointer;
+}
+
+/* nav bar */
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid black;
+}
+
+/* card */
+.card {
+  width: fit-content;
+  padding: 25px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  border: 2px solid #000;
+}
+
+.card h3{
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+.card-header {
+  display: flex;
+}
+
+.card-cta {
+  display: flex;
+}
+
+.card-cta .btn {
+  margin: 5px;
+}
+
+.show-counter {
+  display: flex;
+}
+
+.show-counter p {
+  font-size: 28px;
+  font-weight: bolder;
+  margin: 0;
+  text-align: center;
+}
+
+
+/* input */
+.inp{
+  font-size: 20px;
+  padding: 10px;
+  color: #000;
+  border-radius: 8px;
+  margin: 5px;
+
+  position: relative;
+  top: 0;
+  text-decoration: none !important;
+  outline: none !important;
+  font-size: 20px;
+  line-height: 1.5em;
+  letter-spacing: 0.1em;
+ 
+ 
+  border-bottom: 3px solid rgba(16, 91, 146, 0.5);
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 8px 15px 10px;
+}
+
+/* create pool */
+.heading-input{
+  font-size: 20px;
+}
+
+.inp option{
+  background-color: #000;
+  color: #fff;
+}
+
+.cont{
+  min-height: 95vh;
+  position: relative;
+  top: 0;
+  font-size: 20px;
+  line-height: 1.5em;
+  letter-spacing: 0.1em;
+  border: none;
+  margin: 15px 15px 30px;
+ background-color: #54D440;
+  border-bottom: 3px solid rgba(#54D440, 0.5);
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 8px 15px 10px;
+  box-shadow: 0 6px 0 #50bd40, 0 8px 1px 1px rgba(0, 0, 0, 0.3),
+    0 10px 0 5px #349625, 0 12px 0 5px #1f7512, 0 15px 0 5px #1f7a12,
+    0 15px 1px 6px rgba(0, 0, 0, 0.3);
+
+}
+>>>>>>> alpha

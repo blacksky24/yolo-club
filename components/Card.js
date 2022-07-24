@@ -1,4 +1,4 @@
-import { Loading } from "@nextui-org/react";
+import { Button, Loading } from "@nextui-org/react";
 import axios from "axios";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -38,7 +38,7 @@ const ShowCounter = ({ days, hours, minutes, seconds }) => {
   );
 };
 
-function Card({ cid, walletAddress }) {
+function Card({ cid, walletAddress, buyBearTicket, buyBullTicket }) {
   const [loading, setLoading] = useState(true);
   const [poolDetails, setPoolDetails] = useState();
   const [noOfTicket, setNoOfTicket] = useState(1);
@@ -46,7 +46,9 @@ function Card({ cid, walletAddress }) {
 
   async function fetchCID(cid) {
     const res = await axios.get(`https://ipfs.io/ipfs/${cid}`);
-    setTicketPrice(res.data?.ticketPrice);
+    const ethValue = Web3.utils.fromWei(`${res.data?.ticketPrice}`, "ether");
+    console.log(ethValue);
+    setTicketPrice(ethValue);
     setPoolDetails(res.data);
     setLoading(false);
   }
@@ -60,32 +62,32 @@ function Card({ cid, walletAddress }) {
     return new web3.eth.Contract(CONTRACT_ABI, poolDetails?.contractAddress);
   };
 
-  const buyBullTicket = () => {
-    const contract = getContract();
+  // const buyBullTicket = () => {
+  //   const contract = getContract();
 
-    contract.methods
-      .buyBullTicket(noOfTicket)
-      .send({ from: walletAddress, value: noOfTicket * ticketPrice })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
-  };
+  //   contract.methods
+  //     .buyBullTicket(noOfTicket)
+  //     .send({ from: walletAddress, value: noOfTicket * ticketPrice })
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
-  const buyBearTicket = () => {
-    const contract = getContract();
+  // const buyBearTicket = () => {
+  //   const contract = getContract();
 
-    console.log(contract);
-    console.log("contract address", poolDetails?.contractAddress);
+  //   console.log(contract);
+  //   console.log("contract address", poolDetails?.contractAddress);
 
-    contract.methods
-      .buyBearTicket(noOfTicket)
-      .send({ from: walletAddress, value: noOfTicket * ticketPrice })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
-  };
+  //   contract.methods
+  //     .buyBearTicket(noOfTicket)
+  //     .send({ from: walletAddress, value: noOfTicket * ticketPrice })
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   const getTicketPrice = () => {
     const contract = getContract();
@@ -108,47 +110,90 @@ function Card({ cid, walletAddress }) {
     <div className="card box">
       <div className="card-header">
         <div className="card-img flex items-center">
-          {loading ? <Loading /> : <img src="/eth.png" alt="eth" />}
+          {loading ? (
+            <Loading />
+          ) : (
+            <img
+              src="https://c.tenor.com/7VzBpq5zYR8AAAAd/eth.gif"
+              alt="eth"
+              width={"100px"}
+              className="rounded-xl"
+            />
+          )}
         </div>
+
         <div className="card-details">
           <h4>
-            On {poolDetails?.onDateTime}, price of {poolDetails?.assetName} will
-            be {poolDetails?.comparision} {poolDetails?.targetPrice}{" "}
+            On{" "}
+            {new Date(poolDetails?.onDateTime).toLocaleString(["en-US"], {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+            , price of {poolDetails?.assetName} will be{" "}
+            {poolDetails?.comparision} {poolDetails?.targetPrice}{" "}
             {poolDetails?.targetPriceUnit}
           </h4>
-          <hr />
-          <p>Pool Start in: {poolDetails?.openingDateTime}</p>
-          <hr />
-          <p>Pool closes in: {poolDetails?.closingDateTime}</p>
-          <hr />
-          <p>
-            Ticke Price: {poolDetails?.ticketPrice}{" "}
-            <b> {poolDetails?.ticketPriceUnit}</b>
-          </p>
-          <hr />
-          <p>
-            Number of tickets -
-            <select
-              className="select"
-              defaultValue={1}
-              onChange={(e) => setNoOfTicket(e.target.value)}
-            >
-              <option className="option" value={1}>
-                1
-              </option>
-              <option className="option" value={3}>
-                3
-              </option>
-              <option className="option" value={5}>
-                5
-              </option>
-              <option className="option" value={10}>
-                10
-              </option>
-            </select>
-          </p>
 
-          <div className="card-cta">
+          <div className="flex">
+            <Button size="lg" color={"success"} className="mr-5 ">
+            <b className="mr-2 text-black">Pool start:</b>{" "}
+              {new Date(poolDetails?.openingDateTime).toLocaleString(
+                ["en-US"],
+                {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                }
+              )}
+            </Button>
+            <Button size="lg" className="mr-5" color={"error"}>
+              <b className="mr-2 text-black">Pool closes:</b>{" "}
+              {new Date(poolDetails?.closingDateTime).toLocaleString(
+                ["en-US"],
+                {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                }
+              )}
+            </Button>
+
+            <Button size="lg" auto>
+            <b className="mr-2 text-black">Ticket Price:</b>{" "} {ticketPrice} <b className="ml-2"> {poolDetails?.ticketPriceUnit}</b>
+            </Button>
+          </div>
+        </div>
+
+        <div className="card-cta text-center">
+          <div className=" flex">
+            <div className="game-button">
+              Tickets
+              <select
+                className="ml-5 rounded select"
+                defaultValue={1}
+                onChange={(e) => setNoOfTicket(e.target.value)}
+              >
+                <option className="option" value={1}>
+                  1
+                </option>
+                <option className="option" value={3}>
+                  3
+                </option>
+                <option className="option" value={5}>
+                  5
+                </option>
+                <option className="option" value={10}>
+                  10
+                </option>
+              </select>
+            </div>
             <button
               className="game-button green w-full"
               onClick={buyBullTicket}

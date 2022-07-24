@@ -137,15 +137,12 @@
     0px 4px 1px #004a87, 2px 4px 1px #004a87, -2px 4px 1px #004a87; */
   border: none;
   margin: 15px 15px 30px;
-background-color: #409ae4;
-  border-bottom: 3px solid rgba(16, 91, 146, 0.5);
-  border-top: 3px solid rgba(255, 255, 255, 0.3);
+background-color: #130C18;
+  border-bottom: 3px solid rgba(#872cc9, 0.5);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.4);
   color: #fff !important;
   border-radius: 8px;
   padding: 8px 15px 10px;
-  box-shadow: 0 6px 0 #266b91, 0 8px 1px 1px rgba(0, 0, 0, 0.3),
-    0 10px 0 5px #12517d, 0 12px 0 5px #1a6b9a, 0 15px 0 5px #0c405e,
-    0 15px 1px 6px rgba(0, 0, 0, 0.3);
 
 }
 

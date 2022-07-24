@@ -113,13 +113,13 @@ export default function Home() {
 
       <div className="cont">
         {/* <div className="bg"></div> */}
-        <Nav title="Bulls Vs Bear" />
+        <Nav title="Bulls Vs Bears" />
 
         <div className="card-container">
           {poolData?.map((cid) => {
             return (
-              <div className="p-2">
-                <Card cid={cid} walletAddress={walletAddress} />
+              <div className="p-2 w-full">
+                <Card cid={cid} walletAddress={walletAddress} buyBearTicket={buyBearTicket} buyBullTicket={buyBullTicket} />
               </div>
             );
           })}

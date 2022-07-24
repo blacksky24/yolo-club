@@ -57,6 +57,7 @@ a {
   padding: 50px;
 
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
@@ -81,7 +82,7 @@ a {
   justify-content: center;
 }
 
-.btn--light{
+.btn--light {
   background-color: #2eb086;
   color: #000;
   margin: 5px;
@@ -108,7 +109,8 @@ a {
   cursor: pointer;
 }
 
-.btn--bull:active, .btn--bear:active {
+.btn--bull:active,
+.btn--bear:active {
   box-shadow: none;
   position: relative;
   top: 0.2em;
@@ -136,35 +138,62 @@ a {
 
 /* card */
 .card {
-  width: fit-content;
+  width: 100%;
   padding: 25px;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
   border: 2px solid #000;
 }
 
-.card h3{
+.card h3 {
   font-size: 20px;
   display: flex;
   justify-content: space-between;
 }
 
 .card-img {
-  width: 100%;
-  max-width: 200px;
+  width: 7%;
   height: auto;
 }
 
 .card-header {
   display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .card-cta {
-  display: flex;
+  width: 45%;
 }
 
 .card-cta .btn {
   margin: 5px;
+}
+.card-details {
+  padding: 0 20px;
+  width: 60%;
+}
+.card-details p {
+  font-weight: bold;
+  font-size: 20px;
+}
+.card-details h4 {
+  color: rgb(241, 238, 238);
+  font-size: 23px;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+.noTicket {
+  width: fit-content;
+  margin: 0 auto;
+  background-color: #2eb086;
+  border-radius: 10px;
+  padding: 10px;
+  text-shadow: 2px 2px 1px #0066a2, -2px 2px 1px #0066a2, 2px -2px 1px #0066a2,
+    -2px -2px 1px #0066a2, 0px 2px 1px #0066a2, 0px -2px 1px #0066a2,
+    0px 4px 1px #004a87, 2px 4px 1px #004a87, -2px 4px 1px #004a87;
+  box-shadow: 0 6px 0 #266b91, 0 8px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 .show-counter {
@@ -178,9 +207,8 @@ a {
   text-align: center;
 }
 
-
 /* input */
-.inp{
+.inp {
   font-size: 20px;
   padding: 10px;
   color: #000;
@@ -194,8 +222,7 @@ a {
   font-size: 20px;
   line-height: 1.5em;
   letter-spacing: 0.1em;
- 
- 
+
   border-bottom: 3px solid rgba(16, 91, 146, 0.5);
   border-top: 3px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
@@ -203,16 +230,16 @@ a {
 }
 
 /* create pool */
-.heading-input{
+.heading-input {
   font-size: 20px;
 }
 
-.inp option{
+.inp option {
   background-color: #000;
   color: #fff;
 }
 
-.cont{
+.cont {
   min-height: 95vh;
   position: relative;
   top: 0;
@@ -221,13 +248,12 @@ a {
   letter-spacing: 0.1em;
   border: none;
   margin: 15px 15px 30px;
- background-color: #54D440;
-  border-bottom: 3px solid rgba(#54D440, 0.5);
+  background-color: #1D1327;
+  border-bottom: 3px solid rgba(#54d440, 0.5);
   border-top: 3px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   padding: 8px 15px 10px;
   box-shadow: 0 6px 0 #50bd40, 0 8px 1px 1px rgba(0, 0, 0, 0.3),
     0 10px 0 5px #349625, 0 12px 0 5px #1f7512, 0 15px 0 5px #1f7a12,
     0 15px 1px 6px rgba(0, 0, 0, 0.3);
-
 }
